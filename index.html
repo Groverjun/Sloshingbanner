@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,html{
+				height: 100%;
+				width: 100%;
+				background: #000;
+				overflow: hidden;
+			}
+			.top1{
+				width: 100%;
+				text-align: center;
+				height:100%;
+				margin: auto;
+			}
+			.big_img{
+				transition: all 0.2s ease-out;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="top1">
+			<img src="https://juheimg.oss-cn-hangzhou.aliyuncs.com/www/v6/home/4.png" alt=""  class="big_img"/>
+		</div>
+		<script type="text/javascript">
+			(function(){  
+		        var bannerWrap = document.querySelector('.top1'),  
+		            banner = bannerWrap.querySelector('.big_img');  
+		        bannerWrap.addEventListener('mousemove', function(e){  
+		            this.style.transition = '';  
+		            var centerX = bannerWrap.offsetLeft + banner.offsetWidth / 2,  //div中心点到页面左边距离  
+		                centerY = bannerWrap.offsetTop + banner.offsetHeight / 2;  
+		  
+		            var deltaX = e.pageX - centerX,  
+		                deltaY = e.pageY - centerY;  
+		  
+		  
+		            var percentageX = deltaX / centerX,  //向左或向右的 偏差率  
+		                percentageY = deltaY / centerY;  
+		            banner.style.transform = 'translate3d('+ -percentageX*20+'px,'+ -percentageY*20+'px,0)';  
+		        });  
+		        bannerWrap.addEventListener('mouseleave', function(e){  
+		             this.style.transform = 'translate3d('+ 0+'px,'+ 0+'px,0)';  
+		        })  
+		    })(); 
+		</script>
+	</body>
+</html>
